@@ -2,9 +2,6 @@
 //  FJRFlipsideViewController.h
 //  relauncher
 //
-//  Created by Ian Meyer on 6/25/13.
-//  Copyright (c) 2013 @frijole. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
 
@@ -14,9 +11,11 @@
 - (void)flipsideViewControllerDidFinish:(FJRFlipsideViewController *)controller;
 @end
 
-@interface FJRFlipsideViewController : UIViewController
+@interface FJRFlipsideViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) id <FJRFlipsideViewControllerDelegate> delegate;
+
+@property IBOutlet UITextField *textField;
 
 - (IBAction)done:(id)sender;
 

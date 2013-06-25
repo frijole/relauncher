@@ -2,9 +2,6 @@
 //  FJRFlipsideViewController.m
 //  relauncher
 //
-//  Created by Ian Meyer on 6/25/13.
-//  Copyright (c) 2013 @frijole. All rights reserved.
-//
 
 #import "FJRFlipsideViewController.h"
 
@@ -36,7 +33,18 @@
 
 - (IBAction)done:(id)sender
 {
-    [self.delegate flipsideViewControllerDidFinish:self];
+    // if the field contains a valid URL, we're done here.
+    if ( [NSURL URLWithString:self.textField.text] )
+    {
+        [self.delegate flipsideViewControllerDidFinish:self];
+    }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self done:nil];
+    
+    return NO;
 }
 
 @end
